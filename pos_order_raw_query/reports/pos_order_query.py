@@ -26,7 +26,7 @@ class PosOrderQuery(models.Model):
     _name = 'pos.order_query'
     _description = 'POS Order Query'
     _auto = False
-    
+
     name = fields.Char(
         string='# Order')
     id_resto = fields.Char(
@@ -49,7 +49,7 @@ class PosOrderQuery(models.Model):
         )
     customer_id = fields.Many2one(
         string='Customer',
-        comodel_name = 'res.partner',
+        comodel_name='res.partner',
         )
     customer = fields.Char(
         string='Customer',
@@ -60,7 +60,7 @@ class PosOrderQuery(models.Model):
     send_flag = fields.Boolean(
         string='send_flag',
         )
-    
+
     def init(self, cr):
         tools.drop_view_if_exists(cr, 'pos_order_query')
         cr.execute("""
