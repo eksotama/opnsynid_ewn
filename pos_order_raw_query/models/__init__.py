@@ -1,9 +1,8 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2009 P. Christeas <p_christ@hol.gr>. All Rights Reserved
-#    $Id$
+#    Author : Andhitia Rama, Michael Viriyananda, Nurazmi
+#    Copyright (C) 2015 OpenSynergy Indonesia
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -19,17 +18,5 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-{
-    'name': 'POS Order Query',
-    'version': '1.0',
-    'author': 'OpenSynergy Indonesia',
-    'website': 'https://opensynergy-indonesia.com',
-    'description': """
-    """,
-    'depends': ['pos_restaurant'],
-    'data': ['views/pos_order_query_view.xml',
-                'wactions/pos_order_query_waction.xml',
-                'menus/menu_report.xml',],
-    'installable': True,
-}
+from . import pos
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
