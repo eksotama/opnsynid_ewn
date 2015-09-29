@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="tree_posOrderQuery">
+            <field name="name">pos.order_query.tree</field>
+            <field name="model">pos.order_query</field>
+            <field name="arch" type="xml">
+                <tree string="POS Order Query" create="false" edit="false" delete="false">
+                    <field name="id_resto"/>
+                    <field name="name_resto"/>
+                    <field name="id_bill"/>
+                    <field name="tgl_bill"/>
+                    <field name="jam_bill"/>
+                    <field name="customer"/>
+                    <field name="total_bill"/>
+                    <field name="send_flag"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="search_posOrderQuery" model="ir.ui.view">
+            <field name="name">pos.order_query.select</field>
+            <field name="model">pos.order_query</field>
+            <field name="arch" type="xml">
+                <search string="Search POS">
+
+                </search>
+            </field>
+        </record>
+    </data>
+</openerp>
