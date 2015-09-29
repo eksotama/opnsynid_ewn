@@ -29,9 +29,8 @@ class PosOrderQuery(models.Model):
     
     name = fields.Char(
         string='# Order')
-    id_resto = fields.Many2one(
+    id_resto = fields.Char(
         string='id_resto',
-        comodel_name ='res.company',
         )
     name_resto = fields.Char(
         string='name_resto',
@@ -52,22 +51,22 @@ class PosOrderQuery(models.Model):
         string='Customer',
         comodel_name = 'res.partner',
         )
+    customer = fields.Char(
+        string='Customer',
+        )
     total_bill = fields.Float(
         string='total_bill',
         )
     send_flag = fields.Boolean(
         string='send_flag',
         )
-
-
-
     
     def init(self, cr):
         tools.drop_view_if_exists(cr, 'pos_order_query')
         cr.execute("""
             create or replace view pos_order_query as (
             SELECT  a.name AS name,
-                    a.company_id AS id_resto,
+                    d.ref AS id_resto,
                     b.name AS name_resto,
                     a.name AS id_bill,
                     a.id AS id,
@@ -75,6 +74,7 @@ class PosOrderQuery(models.Model):
                     TO_CHAR(a.date_order, 'DD-MM-YYYY') AS tgl_bill,
                     TO_CHAR(a.date_order, 'HH24:MI:SS') AS jam_bill,
                     a.partner_id AS customer_id,
+                    e.name AS customer,
                     c.amount_total AS total_bill,
                     a.send_flag AS send_flag
             FROM    pos_order AS a
@@ -85,5 +85,7 @@ class PosOrderQuery(models.Model):
                     FROM    pos_order_line AS c1
                     GROUP BY    order_id
                     ) AS c ON   a.id = c.order_id
+            JOIN    res_partner AS d ON b.partner_id = d.id
+            LEFT JOIN    res_partner AS e ON a.partner_id = e.id
             )
         """)

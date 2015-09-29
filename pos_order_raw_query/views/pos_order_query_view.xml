@@ -5,13 +5,13 @@
             <field name="name">pos.order_query.tree</field>
             <field name="model">pos.order_query</field>
             <field name="arch" type="xml">
-                <tree string="POS Order Query">
+                <tree string="POS Order Query" create="false" edit="false" delete="false">
                     <field name="id_resto"/>
                     <field name="name_resto"/>
                     <field name="id_bill"/>
                     <field name="tgl_bill"/>
                     <field name="jam_bill"/>
-                    <field name="customer_id"/>
+                    <field name="customer"/>
                     <field name="total_bill"/>
                     <field name="send_flag"/>
                 </tree>
