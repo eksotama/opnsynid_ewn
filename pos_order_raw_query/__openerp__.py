@@ -28,9 +28,9 @@
     """,
     'depends': ['pos_restaurant'],
     'data': ['security/ir.model.access.csv',
-                'views/pos_order_query_view.xml',
-                'wactions/pos_order_query_waction.xml',
-                'menus/menu_report.xml'],
+            'views/pos_order_query_view.xml',
+            'wactions/pos_order_query_waction.xml',
+            'menus/menu_report.xml'],
     'installable': True,
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
